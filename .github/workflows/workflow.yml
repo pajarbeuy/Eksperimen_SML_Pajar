@@ -1,5 +1,8 @@
 name: Data Preprocessing Pipeline
 
+permissions:
+  contents: write
+  
 on:
   push:
     branches:
@@ -36,7 +39,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
-          git add preprocessing/*.csv
+          git add .
 
           git diff --cached --quiet || git commit -m "Auto update preprocessing dataset"
 
