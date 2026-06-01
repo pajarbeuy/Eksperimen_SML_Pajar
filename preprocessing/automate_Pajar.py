@@ -2,6 +2,8 @@ import pandas as pd
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
+from pathlib import Path
+
 
 
 def preprocess_data(input_path, output_path):
@@ -55,11 +57,10 @@ def preprocess_data(input_path, output_path):
 
 
 if __name__ == "__main__":
+    BASE_DIR = Path(__file__).parent
 
-    INPUT_FILE = "../dataset_raw/Teen_Mental_Health_Dataset.csv"
-    OUTPUT_FILE = "teen_social_media_preprocessed.csv"
+    INPUT_PATH = BASE_DIR.parent / "dataset_raw" / "Teen_Mental_Health_Dataset.csv"
+    OUTPUT_PATH = BASE_DIR.parent / "preprocessing" / "Teen_Mental_Health_Dataset_Processed.csv"
 
-    preprocess_data(
-        INPUT_FILE,
-        OUTPUT_FILE
-    )
+    print("Input :", INPUT_PATH)
+    print("Output :", OUTPUT_PATH)
